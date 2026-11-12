@@ -1,0 +1,211 @@
+{
+  "students": [
+    {
+      "id": "student-1794522323606",
+      "name": "Mekel",
+      "class": "Kelas 5C",
+      "createdAt": "2026-11-12T22:25:23.606Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "objek": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "skema": {
+          "isCompleted": true,
+          "score": 100
+        }
+      },
+      "completionRate": 100,
+      "reflection": {
+        "dailyExample": "x",
+        "understoodText": "sx",
+        "confusedText": "x",
+        "createdAt": "2026-11-12T22:41:22.585Z"
+      }
+    },
+    {
+      "id": "student-1794498871083",
+      "name": "kunx",
+      "class": "Kelas 5B",
+      "createdAt": "2026-11-12T15:54:31.083Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "objek": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "skema": {
+          "isCompleted": true,
+          "score": 100
+        }
+      },
+      "completionRate": 100,
+      "reflection": {
+        "dailyExample": "p",
+        "understoodText": "o",
+        "confusedText": "p",
+        "createdAt": "2026-11-12T15:57:46.471Z"
+      }
+    },
+    {
+      "id": "student-sample-1",
+      "name": "Ayu Putri",
+      "class": "Kelas 5B",
+      "createdAt": "2026-11-09T07:00:00.000Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "objek": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "skema": {
+          "isCompleted": true,
+          "score": 100
+        }
+      },
+      "completionRate": 100,
+      "reflection": {
+        "dailyExample": "Resep membuat sirup manis butuh 1 sendok sirup untuk 4 gelas air (1 : 4). Jika membuat 5 sirup maka butuh 20 air.",
+        "understoodText": "Rasio membandingkan dua kuantitas. Jika kedua angka dikalikan atau dibagi bilangan yang sama, nilai perbandingannya tetap sama (senilai).",
+        "confusedText": "Bagaimana jika rasionya melibatkan 3 benda sekaligus, misalnya tepung, gula, dan mentega?",
+        "createdAt": "2026-11-09T07:30:00.000Z"
+      }
+    },
+    {
+      "id": "mock-2",
+      "name": "Budi Santoso",
+      "class": "Kelas 5B",
+      "createdAt": "2026-11-09T06:00:00.000Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "objek": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "skema": {
+          "isCompleted": true,
+          "score": 100
+        }
+      },
+      "completionRate": 100,
+      "reflection": {
+        "dailyExample": "Rasio 2 roda untuk 1 sepeda (2:1). Jika ada 3 sepeda, maka ada 6 roda (6:3 yang senilai 2:1).",
+        "understoodText": "Di tahap objek saya paham bahwa 2:3 dan 4:6 bukan hanya kepingan terpisah, tetapi satu kesatuan nilai pecahan yang sama (2/3).",
+        "confusedText": "Cara menghitung perbandingan jika ada bilangan desimal atau koma seperti 1.5 : 3.",
+        "createdAt": "2026-11-09T06:30:00.000Z"
+      }
+    },
+    {
+      "id": "mock-3",
+      "name": "Fajar Nugraha",
+      "class": "Kelas 5B",
+      "createdAt": "2026-11-09T05:00:00.000Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "objek": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "skema": {
+          "isCompleted": false,
+          "score": 50
+        }
+      },
+      "completionRate": 75,
+      "reflection": {
+        "dailyExample": "Perbandingan kelereng merah dan kelereng biru di kantong saya adalah 4 kelereng merah untuk 6 kelereng biru.",
+        "understoodText": "Saya mengerti bahwa rasio 4:6 bisa disederhanakan menjadi 2:3 dengan membagi kedua bilangan dengan 2.",
+        "confusedText": "Menghitung takaran air pada resep koki jika sirupnya menggunakan pecahan.",
+        "createdAt": "2026-11-09T05:30:00.000Z"
+      }
+    },
+    {
+      "id": "mock-4",
+      "name": "Siti Rahma",
+      "class": "Kelas 5A",
+      "createdAt": "2026-11-09T04:00:00.000Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": true,
+          "score": 85
+        },
+        "objek": {
+          "isCompleted": false,
+          "score": 0
+        },
+        "skema": {
+          "isCompleted": false,
+          "score": 0
+        }
+      },
+      "completionRate": 50,
+      "reflection": null
+    },
+    {
+      "id": "mock-5",
+      "name": "Dewi Lestari",
+      "class": "Kelas 5C",
+      "createdAt": "2026-11-09T03:00:00.000Z",
+      "progress": {
+        "aksi": {
+          "isCompleted": true,
+          "score": 100
+        },
+        "proses": {
+          "isCompleted": false,
+          "score": 40
+        },
+        "objek": {
+          "isCompleted": false,
+          "score": 0
+        },
+        "skema": {
+          "isCompleted": false,
+          "score": 0
+        }
+      },
+      "completionRate": 25,
+      "reflection": null
+    }
+  ]
+}

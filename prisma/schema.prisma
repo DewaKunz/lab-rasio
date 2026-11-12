@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AposStage {
+  AKSI
+  PROSES
+  OBJEK
+  SKEMA
+}
+
+model Student {
+  id          String         @id @default(cuid())
+  name        String
+  class       String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  // Relations
+  progress    AposProgress[]
+  reflections Reflection[]
+
+  @@map("students")
+}
+
+model AposProgress {
+  id          String    @id @default(cuid())
+  studentId   String
+  stage       AposStage
+  isCompleted Boolean   @default(false)
+  score       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relation
+  student     Student   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, stage])
+  @@index([studentId])
+  @@map("apos_progress")
+}
+
+model Reflection {
+  id             String   @id @default(cuid())
+  studentId      String
+  understoodText String   @db.Text
+  confusedText   String   @db.Text
+  createdAt      DateTime @default(now())
+
+  // Relation
+  student        Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+  @@map("reflections")
+}
+

@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #E0F2FE;
+  --foreground: #0F172A;
+}
+
+body {
+  color: var(--foreground);
+  background-color: #E0F2FE;
+  background-image: 
+    radial-gradient(#BAE6FD 2px, transparent 2px),
+    radial-gradient(#BAE6FD 2px, #E0F2FE 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  font-family: var(--font-nunito), "Quicksand", "Nunito", system-ui, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  user-select: none;
+  min-height: 100vh;
+}
+
+/* 3D Chunky Mobile-Game Buttons with Juicy Gloss */
+.btn-game {
+  @apply relative inline-flex items-center justify-center font-black rounded-full transition-all duration-150 cursor-pointer select-none active:translate-y-1.5 overflow-hidden;
+}
+
+.btn-game::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 12px;
+  right: 12px;
+  height: 35%;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+}
+
+.btn-game-yellow {
+  @apply btn-game bg-amber-400 hover:bg-amber-300 text-amber-950 border-amber-600 active:border-b-0 shadow-xl shadow-amber-400/40;
+  border-bottom-width: 6px;
+}
+
+.btn-game-green {
+  @apply btn-game bg-emerald-500 hover:bg-emerald-400 text-white border-emerald-700 active:border-b-0 shadow-xl shadow-emerald-500/40;
+  border-bottom-width: 6px;
+}
+
+.btn-game-blue {
+  @apply btn-game bg-sky-500 hover:bg-sky-400 text-white border-sky-700 active:border-b-0 shadow-xl shadow-sky-500/40;
+  border-bottom-width: 6px;
+}
+
+.btn-game-purple {
+  @apply btn-game bg-purple-500 hover:bg-purple-400 text-white border-purple-700 active:border-b-0 shadow-xl shadow-purple-500/40;
+  border-bottom-width: 6px;
+}
+
+.btn-game-rose {
+  @apply btn-game bg-rose-500 hover:bg-rose-400 text-white border-rose-700 active:border-b-0 shadow-xl shadow-rose-500/40;
+  border-bottom-width: 6px;
+}
+
+/* Claymorphism & 3D Game Cards */
+.game-card-3d {
+  @apply rounded-3xl border-4 border-b-8 shadow-2xl transition-all duration-200;
+}
+
+.game-card-clay {
+  @apply rounded-3xl bg-white border-4 border-b-8 shadow-xl shadow-sky-200/60;
+}
+
+/* Pulsing affordance for draggables */
+@keyframes touch-wiggle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.05);
+  }
+}
+
+.animate-touch-ready {
+  animation: touch-wiggle 2.8s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 3.5s ease-in-out infinite;
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(10px) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-bubble-rise {
+  animation: bubble-rise 2s ease-in-out infinite;
+}
+
+/* Custom playful bubbly scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #BAE6FD;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38BDF8;
+  border-radius: 9999px;
+  border: 3px solid #BAE6FD;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284C7;
+}
