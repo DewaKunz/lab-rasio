@@ -231,7 +231,7 @@ export default function StudentLoginPage() {
                   type="button"
                   key={item.emoji}
                   onClick={() => setSelectedAvatar(item.emoji)}
-                  className={`flex h-13 w-13 items-center justify-center rounded-2xl text-2xl border-b-4 transition-all ${
+                  className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl text-2xl border-b-4 transition-all touch-manipulation ${
                     selectedAvatar === item.emoji
                       ? "bg-amber-300 border-amber-600 scale-110 shadow-lg ring-4 ring-amber-200"
                       : "bg-slate-100 border-slate-300 hover:bg-slate-200"
@@ -254,7 +254,7 @@ export default function StudentLoginPage() {
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
                 placeholder="Ketik Nama Kamu di sini..."
-                className="w-full rounded-full border-4 border-sky-300 bg-sky-50/70 px-6 py-4 text-xl font-black text-slate-900 placeholder:text-slate-400 placeholder:font-bold focus:border-amber-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-amber-200 transition shadow-inner"
+                className="w-full rounded-full border-4 border-sky-300 bg-sky-50/70 px-5 sm:px-6 py-3.5 sm:py-4 text-base sm:text-xl font-black text-slate-900 placeholder:text-slate-400 placeholder:font-bold focus:border-amber-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-amber-200 transition shadow-inner"
               />
               <span className="absolute right-5 top-1/2 -translate-y-1/2 text-2xl">
                 {selectedAvatar}

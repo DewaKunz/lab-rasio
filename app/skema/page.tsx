@@ -303,18 +303,37 @@ export default function SkemaPage() {
 
   return (
     <div className="space-y-6 pb-20">
-      {/* Top Header Navigation */}
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-black text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          <span>Kembali ke Peta</span>
-        </Link>
+      {/* Top Header Navigation & Stepper */}
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3.5 sm:px-5 py-2 sm:py-2.5 font-black text-xs sm:text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          >
+            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+            <span>Kembali ke Peta</span>
+          </Link>
 
-        {/* 3 Challenge Stepper Pills */}
-        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setSoundEnabled((prev) => !prev)}
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          >
+            {soundEnabled ? (
+              <>
+                <Volume2 className="h-4 w-4 text-emerald-600" />
+                <span>Suara: ON 🔊</span>
+              </>
+            ) : (
+              <>
+                <VolumeX className="h-4 w-4 text-slate-400" />
+                <span>Suara: OFF 🔇</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* 3 Challenge Stepper Pills (Smooth horizontal scroll on small screens) */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-1 no-scrollbar">
           {SKEMA_CHALLENGES.map((c, idx) => {
             const isCompleted = completedChallenges.includes(c.id);
             const isCurrent = idx === activeChallengeIndex;
@@ -322,7 +341,7 @@ export default function SkemaPage() {
               <button
                 key={c.id}
                 onClick={() => handleSelectChallenge(idx)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black transition-all ${
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-black transition-all shrink-0 ${
                   isCurrent
                     ? "bg-purple-600 text-white border-b-4 border-purple-800 shadow-md scale-105"
                     : isCompleted
@@ -331,32 +350,15 @@ export default function SkemaPage() {
                 }`}
               >
                 {isCompleted ? (
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                 ) : (
-                  <Star className={`h-4 w-4 ${isCurrent ? "text-yellow-300 fill-yellow-300" : "text-slate-400"}`} />
+                  <Star className={`h-3.5 w-3.5 ${isCurrent ? "text-yellow-300 fill-yellow-300" : "text-slate-400"}`} />
                 )}
                 <span>{c.title} ({c.name})</span>
               </button>
             );
           })}
         </div>
-
-        <button
-          onClick={() => setSoundEnabled((prev) => !prev)}
-          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
-        >
-          {soundEnabled ? (
-            <>
-              <Volume2 className="h-4 w-4 text-emerald-600" />
-              <span>Suara: ON 🔊</span>
-            </>
-          ) : (
-            <>
-              <VolumeX className="h-4 w-4 text-slate-400" />
-              <span>Suara: OFF 🔇</span>
-            </>
-          )}
-        </button>
       </div>
 
       {/* 1. FRIENDLY MASCOT INSTRUCTION BUBBLE */}
@@ -451,16 +453,16 @@ export default function SkemaPage() {
                 <button
                   type="button"
                   onClick={() => handlePourWater(1)}
-                  className="flex-1 btn-game-blue min-h-16 px-6 text-xl"
+                  className="flex-1 btn-game-blue min-h-14 sm:min-h-16 px-4 sm:px-6 text-lg sm:text-xl touch-manipulation"
                 >
-                  <GlassWater className="h-6 w-6 mr-2 animate-bounce" />
+                  <GlassWater className="h-5 w-5 sm:h-6 sm:w-6 mr-2 animate-bounce" />
                   <span>Tuang Air (+1) 💧</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => handlePourWater(5)}
-                  className="btn-game bg-sky-100 hover:bg-sky-200 text-sky-950 border-b-4 border-sky-400 px-4 text-sm font-black"
+                  className="btn-game bg-sky-100 hover:bg-sky-200 text-sky-950 border-b-4 border-sky-400 px-4 text-sm font-black touch-manipulation"
                   title="Tuang 5 gelas sekaligus"
                 >
                   <span>+5</span>
@@ -472,7 +474,7 @@ export default function SkemaPage() {
                   type="button"
                   onClick={handleDecreaseWater}
                   disabled={waterCount === 0}
-                  className="text-xs font-black text-slate-600 hover:text-slate-900 disabled:opacity-40"
+                  className="text-xs font-black text-slate-600 hover:text-slate-900 disabled:opacity-40 py-1"
                 >
                   - Kurangi 1 Gelas
                 </button>
@@ -481,7 +483,7 @@ export default function SkemaPage() {
                   type="button"
                   onClick={handleResetWater}
                   disabled={waterCount === 0}
-                  className="inline-flex items-center gap-1 text-xs font-black text-rose-600 hover:text-rose-800 disabled:opacity-40"
+                  className="inline-flex items-center gap-1 text-xs font-black text-rose-600 hover:text-rose-800 disabled:opacity-40 py-1"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   <span>Kosongkan Air</span>
@@ -494,7 +496,7 @@ export default function SkemaPage() {
           <div className="lg:col-span-7 flex flex-col items-center justify-center">
             <div className="relative w-full max-w-[320px] flex flex-col items-center">
               {/* Giant Pitcher */}
-              <div className="relative w-full h-[250px] rounded-b-[48px] rounded-t-3xl border-4 border-b-8 border-purple-400 bg-white p-4 shadow-2xl flex flex-col justify-end overflow-hidden">
+              <div className="relative w-full h-[210px] sm:h-[250px] rounded-b-[48px] rounded-t-3xl border-4 border-b-8 border-purple-400 bg-white p-4 shadow-2xl flex flex-col justify-end overflow-hidden">
                 {/* Pour Stream */}
                 <AnimatePresence>
                   {isPouringAnim && (
@@ -519,7 +521,7 @@ export default function SkemaPage() {
                       : "bg-gradient-to-t from-rose-600 to-pink-500"
                   }`}
                 >
-                  <span className="text-base drop-shadow">{currentChallenge.name}</span>
+                  <span className="text-sm sm:text-base drop-shadow">{currentChallenge.name}</span>
                   <span className="text-xs opacity-90">
                     {currentChallenge.syrupAmount} Sirup + {waterCount} Air
                   </span>
@@ -527,9 +529,9 @@ export default function SkemaPage() {
               </div>
 
               {/* Status Indicator */}
-              <div className="mt-3 flex items-center justify-center gap-2 text-sm font-black text-slate-800 bg-white rounded-2xl border-2 border-purple-300 px-4 py-2 shadow-sm w-full">
+              <div className="mt-3 flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-black text-slate-800 bg-white rounded-2xl border-2 border-purple-300 px-3 sm:px-4 py-2 shadow-sm w-full">
                 <span>Rasio Saat Ini:</span>
-                <span className="rounded-full bg-purple-200 px-3 py-0.5 text-purple-900">
+                <span className="rounded-full bg-purple-200 px-2.5 sm:px-3 py-0.5 text-purple-900">
                   {currentChallenge.syrupAmount} : {waterCount}
                 </span>
                 {waterCount === currentChallenge.targetWater && (
@@ -544,9 +546,9 @@ export default function SkemaPage() {
                 <button
                   type="button"
                   onClick={handleSubmitChallenge}
-                  className="w-full btn-game-yellow min-h-16 px-8 text-xl"
+                  className="w-full btn-game-yellow min-h-14 sm:min-h-16 px-6 sm:px-8 text-lg sm:text-xl touch-manipulation"
                 >
-                  <Sparkles className="h-6 w-6 text-amber-950 mr-2 animate-spin-slow" />
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-amber-950 mr-2 animate-spin-slow" />
                   <span>Cek Racikan {currentChallenge.title}! 🍹</span>
                 </button>
               </div>
@@ -676,13 +678,13 @@ export default function SkemaPage() {
               <button
                 type="submit"
                 disabled={isSubmittingLkpd}
-                className="w-full sm:w-auto btn-game-green min-h-16 px-12 text-xl"
+                className="w-full sm:w-auto btn-game-green min-h-14 sm:min-h-16 px-6 sm:px-12 text-lg sm:text-xl touch-manipulation"
               >
                 {isSubmittingLkpd ? (
                   <span>Menyimpan ke Database... ⏳</span>
                 ) : (
                   <>
-                    <Send className="h-6 w-6 mr-2" />
+                    <Send className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
                     <span>Kirim Lembar Refleksi (LKPD)! 🚀</span>
                   </>
                 )}

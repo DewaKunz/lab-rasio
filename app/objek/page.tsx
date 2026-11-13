@@ -354,18 +354,37 @@ export default function ObjekPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Top Header Navigation */}
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-black text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          <span>Kembali ke Peta</span>
-        </Link>
+      {/* Top Header Navigation & Stepper */}
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3.5 sm:px-5 py-2 sm:py-2.5 font-black text-xs sm:text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          >
+            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+            <span>Kembali ke Peta</span>
+          </Link>
 
-        {/* 3 Round Stepper Pills */}
-        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setSoundEnabled((prev) => !prev)}
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          >
+            {soundEnabled ? (
+              <>
+                <Volume2 className="h-4 w-4 text-emerald-600" />
+                <span>Suara: ON 🔊</span>
+              </>
+            ) : (
+              <>
+                <VolumeX className="h-4 w-4 text-slate-400" />
+                <span>Suara: OFF 🔇</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* 3 Round Stepper Pills (Scrollable on small screens) */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-1 no-scrollbar">
           {OBJEK_ROUNDS.map((r, idx) => {
             const isCompleted = completedRounds.includes(r.id);
             const isCurrent = idx === activeRoundIndex;
@@ -373,7 +392,7 @@ export default function ObjekPage() {
               <button
                 key={r.id}
                 onClick={() => handleSelectRound(idx)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black transition-all ${
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-black transition-all shrink-0 ${
                   isCurrent
                     ? "bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-105"
                     : isCompleted
@@ -382,32 +401,15 @@ export default function ObjekPage() {
                 }`}
               >
                 {isCompleted ? (
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                 ) : (
-                  <Star className={`h-4 w-4 ${isCurrent ? "text-yellow-300 fill-yellow-300" : "text-slate-400"}`} />
+                  <Star className={`h-3.5 w-3.5 ${isCurrent ? "text-yellow-300 fill-yellow-300" : "text-slate-400"}`} />
                 )}
                 <span>Ronde {r.id}</span>
               </button>
             );
           })}
         </div>
-
-        <button
-          onClick={() => setSoundEnabled((prev) => !prev)}
-          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
-        >
-          {soundEnabled ? (
-            <>
-              <Volume2 className="h-4 w-4 text-emerald-600" />
-              <span>Suara: ON 🔊</span>
-            </>
-          ) : (
-            <>
-              <VolumeX className="h-4 w-4 text-slate-400" />
-              <span>Suara: OFF 🔇</span>
-            </>
-          )}
-        </button>
       </div>
 
       {/* 1. FRIENDLY MASCOT INSTRUCTION BUBBLE */}
@@ -472,8 +474,8 @@ export default function ObjekPage() {
           </button>
         </div>
 
-        {/* 4 CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* 4 CARDS (2x2 on mobile so all fit on one screen, 4 columns on desktop) */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {currentRound.cards.map((card) => {
             const isMatched = matchedCardIds.includes(card.id);
             const isSelected = selectedCardId === card.id;
@@ -485,20 +487,20 @@ export default function ObjekPage() {
                 whileHover={!isMatched ? { y: -6, scale: 1.04 } : {}}
                 whileTap={!isMatched ? { scale: 0.96 } : {}}
                 onClick={() => handleCardClick(card)}
-                className={`relative flex flex-col justify-between rounded-3xl p-6 transition-all duration-200 cursor-pointer select-none min-h-[220px] ${
+                className={`relative flex flex-col justify-between rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 transition-all duration-200 cursor-pointer select-none min-h-[175px] sm:min-h-[220px] ${
                   isMatched
-                    ? "border-4 border-b-8 border-emerald-600 bg-emerald-100 shadow-xl ring-4 ring-emerald-400 cursor-default"
+                    ? "border-3 sm:border-4 border-b-6 sm:border-b-8 border-emerald-600 bg-emerald-100 shadow-xl ring-3 sm:ring-4 ring-emerald-400 cursor-default"
                     : isSelected
-                    ? "border-4 border-b-8 border-amber-500 bg-amber-100 shadow-2xl ring-6 ring-amber-400 animate-pulse"
+                    ? "border-3 sm:border-4 border-b-6 sm:border-b-8 border-amber-500 bg-amber-100 shadow-2xl ring-4 sm:ring-6 ring-amber-400 animate-pulse"
                     : isMismatch
-                    ? "border-4 border-b-8 border-rose-500 bg-rose-100 shadow-md ring-4 ring-rose-400"
-                    : `border-4 border-b-8 border-slate-300 bg-white shadow-lg hover:border-sky-400`
+                    ? "border-3 sm:border-4 border-b-6 sm:border-b-8 border-rose-500 bg-rose-100 shadow-md ring-3 sm:ring-4 ring-rose-400"
+                    : `border-3 sm:border-4 border-b-6 sm:border-b-8 border-slate-300 bg-white shadow-lg hover:border-sky-400`
                 }`}
               >
                 {/* Top Badge */}
                 <div className="flex items-center justify-between">
                   <span
-                    className={`rounded-full border px-3 py-0.5 text-xs font-black uppercase tracking-wider ${
+                    className={`rounded-full border px-2 sm:px-3 py-0.5 text-[10px] sm:text-xs font-black uppercase tracking-wider ${
                       isMatched
                         ? "bg-emerald-200 text-emerald-900 border-emerald-400"
                         : card.colorTheme.badge
@@ -508,41 +510,41 @@ export default function ObjekPage() {
                   </span>
 
                   {isMatched ? (
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white font-black text-sm shadow-md animate-bounce">
-                      <CheckCircle2 className="h-5 w-5" />
+                    <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-emerald-500 text-white font-black text-xs sm:text-sm shadow-md animate-bounce">
+                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
                     </span>
                   ) : isSelected ? (
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-400 text-slate-900 font-black text-sm shadow-md">
+                    <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-amber-400 text-slate-900 font-black text-xs sm:text-sm shadow-md">
                       ⭐
                     </span>
                   ) : (
-                    <span className="text-xl">{card.emoji}</span>
+                    <span className="text-lg sm:text-xl">{card.emoji}</span>
                   )}
                 </div>
 
                 {/* Central Big Ratio */}
-                <div className="my-4 text-center space-y-1">
-                  <span className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight block">
+                <div className="my-2 sm:my-4 text-center space-y-0.5 sm:space-y-1">
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight block">
                     {card.ratioText}
                   </span>
-                  <span className="text-xs font-black text-slate-500 block">
+                  <span className="text-[11px] sm:text-xs font-black text-slate-500 block">
                     Pecahan: {card.antecedent}/{card.consequent}
                   </span>
                 </div>
 
                 {/* Bottom Status */}
-                <div className="border-t-2 border-slate-100 pt-3 text-center">
+                <div className="border-t-2 border-slate-100 pt-2 sm:pt-3 text-center">
                   {isMatched ? (
-                    <span className="text-xs font-black text-emerald-700">
-                      ✅ Pasangan Cocok!
+                    <span className="text-[11px] sm:text-xs font-black text-emerald-700">
+                      ✅ Cocok!
                     </span>
                   ) : isSelected ? (
-                    <span className="text-xs font-black text-amber-800">
-                      👇 Sentuh Kartu Pasangannya!
+                    <span className="text-[11px] sm:text-xs font-black text-amber-800">
+                      👇 Pilih Pasangan
                     </span>
                   ) : (
-                    <span className="text-xs font-black text-slate-400">
-                      Sentuh Untuk Memilih
+                    <span className="text-[11px] sm:text-xs font-black text-slate-400">
+                      Sentuh Kartu
                     </span>
                   )}
                 </div>

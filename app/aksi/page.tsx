@@ -350,18 +350,37 @@ export default function AksiPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Top Header Navigation */}
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-black text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          <span>Kembali ke Peta</span>
-        </Link>
+      {/* Top Header Navigation & Mission Stepper */}
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3.5 sm:px-5 py-2 sm:py-2.5 font-black text-xs sm:text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          >
+            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+            <span>Kembali ke Peta</span>
+          </Link>
 
-        {/* 3 Mission Stepper Pills */}
-        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setSoundEnabled((prev) => !prev)}
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          >
+            {soundEnabled ? (
+              <>
+                <Volume2 className="h-4 w-4 text-emerald-600" />
+                <span>Suara: ON 🔊</span>
+              </>
+            ) : (
+              <>
+                <VolumeX className="h-4 w-4 text-slate-400" />
+                <span>Suara: OFF 🔇</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* 3 Mission Stepper Pills (Smooth horizontal scroll on small screens) */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-1 no-scrollbar">
           {MISSIONS.map((m, idx) => {
             const isCompleted = completedMissions.includes(m.id);
             const isCurrent = idx === activeMissionIndex;
@@ -369,7 +388,7 @@ export default function AksiPage() {
               <button
                 key={m.id}
                 onClick={() => handleSelectMission(idx)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black transition-all ${
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-black transition-all shrink-0 ${
                   isCurrent
                     ? "bg-amber-400 text-amber-950 border-b-4 border-amber-600 shadow-md scale-105"
                     : isCompleted
@@ -378,32 +397,15 @@ export default function AksiPage() {
                 }`}
               >
                 {isCompleted ? (
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                 ) : (
-                  <Star className={`h-4 w-4 ${isCurrent ? "text-amber-800 fill-amber-500" : "text-slate-400"}`} />
+                  <Star className={`h-3.5 w-3.5 ${isCurrent ? "text-amber-800 fill-amber-500" : "text-slate-400"}`} />
                 )}
                 <span>Soal {m.id} ({m.targetRed}:{m.targetBlue})</span>
               </button>
             );
           })}
         </div>
-
-        <button
-          onClick={() => setSoundEnabled((prev) => !prev)}
-          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
-        >
-          {soundEnabled ? (
-            <>
-              <Volume2 className="h-4 w-4 text-emerald-600" />
-              <span>Suara: ON 🔊</span>
-            </>
-          ) : (
-            <>
-              <VolumeX className="h-4 w-4 text-slate-400" />
-              <span>Suara: OFF 🔇</span>
-            </>
-          )}
-        </button>
       </div>
 
       {/* 1. FRIENDLY MASCOT INSTRUCTION BUBBLE */}
@@ -520,7 +522,7 @@ export default function AksiPage() {
                                 ref={dragProvided.innerRef}
                                 {...dragProvided.draggableProps}
                                 {...dragProvided.dragHandleProps}
-                                className={`group relative flex h-16 w-16 cursor-grab items-center justify-center rounded-3xl bg-gradient-to-br from-rose-400 via-rose-500 to-red-600 text-white font-black text-lg shadow-lg border-b-4 border-rose-800 ring-4 ring-rose-300/80 active:cursor-grabbing hover:scale-110 active:scale-95 transition-transform select-none ${
+                                className={`group relative flex h-14 w-14 sm:h-16 sm:w-16 cursor-grab items-center justify-center rounded-2xl sm:rounded-3xl bg-gradient-to-br from-rose-400 via-rose-500 to-red-600 text-white font-black text-base sm:text-lg shadow-lg border-b-4 border-rose-800 ring-3 sm:ring-4 ring-rose-300/80 active:cursor-grabbing hover:scale-110 active:scale-95 transition-transform select-none touch-manipulation ${
                                   dragSnapshot.isDragging
                                     ? "scale-125 shadow-2xl ring-6 ring-yellow-400 z-50"
                                     : "animate-touch-ready"
@@ -591,7 +593,7 @@ export default function AksiPage() {
                                 ref={dragProvided.innerRef}
                                 {...dragProvided.draggableProps}
                                 {...dragProvided.dragHandleProps}
-                                className={`group relative flex h-16 w-16 cursor-grab items-center justify-center rounded-3xl bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 text-white font-black text-lg shadow-lg border-b-4 border-sky-800 ring-4 ring-sky-300/80 active:cursor-grabbing hover:scale-110 active:scale-95 transition-transform select-none ${
+                                className={`group relative flex h-14 w-14 sm:h-16 sm:w-16 cursor-grab items-center justify-center rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 text-white font-black text-base sm:text-lg shadow-lg border-b-4 border-sky-800 ring-3 sm:ring-4 ring-sky-300/80 active:cursor-grabbing hover:scale-110 active:scale-95 transition-transform select-none touch-manipulation ${
                                   dragSnapshot.isDragging
                                     ? "scale-125 shadow-2xl ring-6 ring-yellow-400 z-50"
                                     : "animate-touch-ready"
@@ -674,10 +676,10 @@ export default function AksiPage() {
                                   ref={dragProvided.innerRef}
                                   {...dragProvided.draggableProps}
                                   {...dragProvided.dragHandleProps}
-                                  className={`group relative flex h-16 w-16 cursor-grab items-center justify-center rounded-3xl text-white font-black text-lg shadow-lg border-b-4 select-none ${
+                                  className={`group relative flex h-14 w-14 sm:h-16 sm:w-16 cursor-grab items-center justify-center rounded-2xl sm:rounded-3xl text-white font-black text-base sm:text-lg shadow-lg border-b-4 select-none touch-manipulation ${
                                     chip.color === "red"
-                                      ? "bg-gradient-to-br from-rose-400 via-rose-500 to-red-600 border-rose-800 ring-4 ring-rose-300/80"
-                                      : "bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 border-sky-800 ring-4 ring-sky-300/80"
+                                      ? "bg-gradient-to-br from-rose-400 via-rose-500 to-red-600 border-rose-800 ring-3 sm:ring-4 ring-rose-300/80"
+                                      : "bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 border-sky-800 ring-3 sm:ring-4 ring-sky-300/80"
                                   } ${
                                     dragSnapshot.isDragging
                                       ? "scale-125 shadow-2xl ring-6 ring-yellow-400 z-50"

@@ -113,15 +113,15 @@ export default function RefleksiPage() {
       <div className="flex items-center justify-between">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-black text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3.5 sm:px-5 py-2 sm:py-2.5 font-black text-xs sm:text-sm text-slate-800 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
           <span>Kembali ke Peta</span>
         </Link>
 
         <button
           onClick={() => setSoundEnabled((prev) => !prev)}
-          className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
+          className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-4 py-2 font-black text-xs text-slate-700 border-b-4 border-slate-300 shadow-md hover:bg-slate-50 active:translate-y-1 transition"
         >
           {soundEnabled ? (
             <>
@@ -236,13 +236,13 @@ export default function RefleksiPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto btn-game-green min-h-16 px-12 text-xl"
+                className="w-full sm:w-auto btn-game-green min-h-14 sm:min-h-16 px-6 sm:px-12 text-lg sm:text-xl touch-manipulation"
               >
                 {isSubmitting ? (
                   <span>Menyimpan ke Database... ⏳</span>
                 ) : (
                   <>
-                    <Send className="h-6 w-6 mr-2" />
+                    <Send className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
                     <span>Kirim Refleksi ke Guru! 🚀</span>
                   </>
                 )}
@@ -254,9 +254,9 @@ export default function RefleksiPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 280, damping: 20 }}
-            className="rounded-3xl border-4 border-b-8 border-emerald-400 bg-emerald-50 p-8 text-center space-y-6"
+            className="rounded-3xl border-4 border-b-8 border-emerald-400 bg-emerald-50 p-6 sm:p-8 text-center space-y-6"
           >
-            <div className="text-7xl animate-bounce">
+            <div className="text-6xl sm:text-7xl animate-bounce">
               🎉 🏆 🥳
             </div>
 
@@ -264,10 +264,10 @@ export default function RefleksiPage() {
               <span className="inline-block rounded-full bg-emerald-200 border-2 border-emerald-400 px-4 py-1 text-xs font-black text-emerald-950 uppercase">
                 Terkirim Langsung ke Dashboard Guru ⭐
               </span>
-              <h2 className="text-3xl font-black text-slate-900">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
                 Refleksi Berhasil Terkirim!
               </h2>
-              <p className="text-base font-bold text-slate-700 leading-relaxed">
+              <p className="text-sm sm:text-base font-bold text-slate-700 leading-relaxed">
                 Jawabanmu telah tersimpan rapi. Guru dapat langsung membaca hasil refleksimu di Dashboard Guru.
               </p>
             </div>
@@ -275,9 +275,9 @@ export default function RefleksiPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/"
-                className="w-full sm:w-auto btn-game-yellow min-h-16 px-10 text-xl"
+                className="w-full sm:w-auto btn-game-yellow min-h-14 sm:min-h-16 px-6 sm:px-10 text-lg sm:text-xl touch-manipulation"
               >
-                <Trophy className="h-6 w-6 mr-2" />
+                <Trophy className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
                 <span>Kembali ke Peta Petualangan 🗺️</span>
               </Link>
             </div>
