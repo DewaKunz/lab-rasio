@@ -226,7 +226,7 @@ export default function SkemaPage() {
       const localClass =
         typeof window !== "undefined"
           ? localStorage.getItem("lab_rasio_student_class")
-          : "Kelas 5B";
+          : "Kelas 6 SD";
 
       const result = await saveReflectionAction({
         studentName: localName || "Ayu Putri",
@@ -240,7 +240,7 @@ export default function SkemaPage() {
           "lab_rasio_last_reflection",
           JSON.stringify({
             studentName: localName || "Ayu Putri",
-            studentClass: localClass || "Kelas 5B",
+            studentClass: localClass || "Kelas 6 SD",
             dailyExample,
             understoodText,
             confusedText,

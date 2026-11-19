@@ -29,7 +29,7 @@ export default function StudentLoginPage() {
   const router = useRouter();
   const { clickCount, isUnlocked, handleLogoClick } = useSecretTeacherAccess();
   const [studentName, setStudentName] = useState("");
-  const [studentClass, setStudentClass] = useState("Kelas 5B");
+  const [studentClass, setStudentClass] = useState("Kelas 6 SD");
   const [selectedAvatar, setSelectedAvatar] = useState("👧");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -51,7 +51,7 @@ export default function StudentLoginPage() {
           setExistingStudent({
             id: localStorage.getItem("lab_rasio_student_id") || "local-1",
             name: localName,
-            class: localStorage.getItem("lab_rasio_student_class") || "Kelas 5B",
+            class: localStorage.getItem("lab_rasio_student_class") || "Kelas 6 SD",
           });
         }
       }
@@ -262,14 +262,14 @@ export default function StudentLoginPage() {
             </div>
 
             {/* Class Pill selector */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-xs font-black text-slate-500">Pilih Kelas:</span>
-              {["Kelas 5A", "Kelas 5B", "Kelas 5C"].map((cls) => (
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="text-xs font-black text-slate-500 w-full text-center sm:w-auto">Pilih Kelas:</span>
+              {["Kelas 6 SD", "Kelas 6A", "Kelas 6B", "Kelas 6C"].map((cls) => (
                 <button
                   type="button"
                   key={cls}
                   onClick={() => setStudentClass(cls)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-black transition ${
+                  className={`rounded-full px-3.5 sm:px-4 py-1.5 text-xs font-black transition touch-manipulation ${
                     studentClass === cls
                       ? "bg-amber-400 text-amber-950 border-2 border-amber-600 shadow-sm scale-105"
                       : "bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200"

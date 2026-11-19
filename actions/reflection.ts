@@ -75,7 +75,7 @@ export async function saveReflectionAction(
         create: {
           id: "student-sample-1",
           name: sessionStudentName || "Ayu Putri",
-          class: "Kelas 5B",
+          class: "Kelas 6 SD",
         },
       });
     }

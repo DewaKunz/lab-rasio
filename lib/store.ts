@@ -68,7 +68,7 @@ export function saveStoredStudents(students: StoredStudent[]): void {
 
 export function upsertStoredStudent(
   name: string,
-  studentClass: string = "Kelas 5B",
+  studentClass: string = "Kelas 6 SD",
   preferredId?: string
 ): StoredStudent {
   const students = getStoredStudents();
@@ -89,7 +89,7 @@ export function upsertStoredStudent(
   const newStudent: StoredStudent = {
     id: preferredId || "student-" + Date.now(),
     name: trimmedName,
-    class: studentClass || "Kelas 5B",
+    class: studentClass || "Kelas 6 SD",
     createdAt: new Date().toISOString(),
     progress: {
       aksi: { isCompleted: false, score: 0 },
@@ -127,7 +127,7 @@ export function saveStoredReflection(
     student = {
       id: "student-" + Date.now(),
       name: studentIdentifier.startsWith("student-") ? "Ayu Putri" : studentIdentifier,
-      class: "Kelas 5B",
+      class: "Kelas 6 SD",
       createdAt: new Date().toISOString(),
       progress: {
         aksi: { isCompleted: true, score: 100 },

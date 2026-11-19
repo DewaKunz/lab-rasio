@@ -52,7 +52,7 @@ export default function TeacherDashboardPage() {
             const parsed = JSON.parse(localReflectionRaw);
             await syncClientReflectionAction({
               studentName: parsed.studentName || "Ayu Putri",
-              studentClass: parsed.studentClass || "Kelas 5B",
+              studentClass: parsed.studentClass || "Kelas 6 SD",
               dailyExample: parsed.dailyExample || "",
               understoodText: parsed.understoodText || "",
               confusedText: parsed.confusedText || "",
@@ -166,7 +166,7 @@ export default function TeacherDashboardPage() {
             <span className="text-xs text-slate-400 font-medium">Siswa terdaftar</span>
           </div>
           <p className="mt-2 text-[11px] font-semibold text-sky-700">
-            Terbagi di 3 rombel kelas
+            Terbagi di rombel kelas 6 SD
           </p>
         </div>
 
@@ -248,7 +248,7 @@ export default function TeacherDashboardPage() {
         {/* Class Filter buttons */}
         <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto">
           <span className="text-xs font-bold text-slate-500 shrink-0">Filter Kelas:</span>
-          {["ALL", "Kelas 5A", "Kelas 5B", "Kelas 5C"].map((cls) => (
+          {["ALL", "Kelas 6 SD", "Kelas 6A", "Kelas 6B", "Kelas 6C"].map((cls) => (
             <button
               key={cls}
               onClick={() => setSelectedClass(cls)}

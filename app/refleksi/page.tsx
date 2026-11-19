@@ -56,7 +56,7 @@ export default function RefleksiPage() {
       const localClass =
         typeof window !== "undefined"
           ? localStorage.getItem("lab_rasio_student_class")
-          : "Kelas 5B";
+          : "Kelas 6 SD";
 
       const res = await saveReflectionAction({
         studentName: localName || "Ayu Putri",
@@ -70,7 +70,7 @@ export default function RefleksiPage() {
           "lab_rasio_last_reflection",
           JSON.stringify({
             studentName: localName || "Ayu Putri",
-            studentClass: localClass || "Kelas 5B",
+            studentClass: localClass || "Kelas 6 SD",
             dailyExample,
             understoodText,
             confusedText,

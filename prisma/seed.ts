@@ -12,7 +12,7 @@ async function main() {
     create: {
       id: "student-sample-1",
       name: "Ayu Putri",
-      class: "Kelas 5B",
+      class: "Kelas 6 SD",
     },
   });
 

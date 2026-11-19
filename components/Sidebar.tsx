@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import {
   Rocket,
@@ -93,6 +94,17 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
   const { clickCount, isUnlocked, handleLogoClick } = useSecretTeacherAccess();
+  const [studentName, setStudentName] = useState("Ayu Putri");
+  const [studentClass, setStudentClass] = useState("Kelas 6 SD");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedName = localStorage.getItem("lab_rasio_student_name");
+      const storedClass = localStorage.getItem("lab_rasio_student_class");
+      if (storedName) setStudentName(storedName);
+      if (storedClass) setStudentClass(storedClass);
+    }
+  }, []);
 
   return (
     <>
@@ -229,10 +241,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
             <div className="flex flex-col min-w-0">
               <span className="truncate text-sm font-black text-slate-900">
-                Ayu Putri
+                {studentName}
               </span>
               <span className="text-xs font-bold text-amber-800">
-                Kelas 5B &bull; Level 2 🌟
+                {studentClass} &bull; Level 2 🌟
               </span>
             </div>
           </div>

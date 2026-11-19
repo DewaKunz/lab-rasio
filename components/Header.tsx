@@ -11,7 +11,7 @@ interface HeaderProps {
 export default function Header({ onToggleSidebar }: HeaderProps) {
   const { clickCount, isUnlocked, handleLogoClick } = useSecretTeacherAccess();
   const [studentName, setStudentName] = useState("Ayu Putri");
-  const [studentClass, setStudentClass] = useState("Kelas 5B");
+  const [studentClass, setStudentClass] = useState("Kelas 6 SD");
   const [soundOn, setSoundOn] = useState(true);
 
   useEffect(() => {

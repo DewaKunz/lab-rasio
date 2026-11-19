@@ -22,7 +22,7 @@ export interface StudentAuthResult {
  */
 export async function loginStudentAction(
   name: string,
-  studentClass: string = "Kelas 5B"
+  studentClass: string = "Kelas 6 SD"
 ): Promise<StudentAuthResult> {
   const trimmedName = name.trim();
 
@@ -58,7 +58,7 @@ export async function loginStudentAction(
       student = await prisma.student.create({
         data: {
           name: trimmedName,
-          class: studentClass.trim() || "Kelas 5B",
+          class: studentClass.trim() || "Kelas 6 SD",
         },
         include: {
           progress: true,
@@ -138,7 +138,7 @@ export async function getActiveStudentAction() {
   return {
     id: studentId,
     name: decodeURIComponent(rawName),
-    class: rawClass ? decodeURIComponent(rawClass) : "Kelas 5B",
+    class: rawClass ? decodeURIComponent(rawClass) : "Kelas 6 SD",
   };
 }
 

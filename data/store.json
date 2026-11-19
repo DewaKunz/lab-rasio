@@ -3,7 +3,7 @@
     {
       "id": "student-1794522323606",
       "name": "Mekel",
-      "class": "Kelas 5C",
+      "class": "Kelas 6C",
       "createdAt": "2026-11-12T22:25:23.606Z",
       "progress": {
         "aksi": {
@@ -34,7 +34,7 @@
     {
       "id": "student-1794498871083",
       "name": "kunx",
-      "class": "Kelas 5B",
+      "class": "Kelas 6B",
       "createdAt": "2026-11-12T15:54:31.083Z",
       "progress": {
         "aksi": {
@@ -65,7 +65,7 @@
     {
       "id": "student-sample-1",
       "name": "Ayu Putri",
-      "class": "Kelas 5B",
+      "class": "Kelas 6B",
       "createdAt": "2026-11-09T07:00:00.000Z",
       "progress": {
         "aksi": {
@@ -96,7 +96,7 @@
     {
       "id": "mock-2",
       "name": "Budi Santoso",
-      "class": "Kelas 5B",
+      "class": "Kelas 6B",
       "createdAt": "2026-11-09T06:00:00.000Z",
       "progress": {
         "aksi": {
@@ -127,7 +127,7 @@
     {
       "id": "mock-3",
       "name": "Fajar Nugraha",
-      "class": "Kelas 5B",
+      "class": "Kelas 6B",
       "createdAt": "2026-11-09T05:00:00.000Z",
       "progress": {
         "aksi": {
@@ -158,7 +158,7 @@
     {
       "id": "mock-4",
       "name": "Siti Rahma",
-      "class": "Kelas 5A",
+      "class": "Kelas 6A",
       "createdAt": "2026-11-09T04:00:00.000Z",
       "progress": {
         "aksi": {
@@ -184,7 +184,7 @@
     {
       "id": "mock-5",
       "name": "Dewi Lestari",
-      "class": "Kelas 5C",
+      "class": "Kelas 6C",
       "createdAt": "2026-11-09T03:00:00.000Z",
       "progress": {
         "aksi": {
