@@ -340,9 +340,9 @@ export default function ProsesPage() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          {/* Visual Chamber: Shows the Batches of Chips (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          {/* Visual Chamber: Shows the Batches of Chips (7 cols on tablet & laptop) */}
+          <div className="md:col-span-7 flex flex-col gap-4">
             <div className="flex items-center justify-between text-sm font-black text-amber-900 px-1">
               <span>Paket Terkloning ({multiplier} Paket)</span>
               <span className="bg-amber-200 border-2 border-amber-400 px-3 py-0.5 rounded-full text-xs font-black">
@@ -402,21 +402,21 @@ export default function ProsesPage() {
             </div>
           </div>
 
-          {/* GIANT MULTIPLY 3D BUTTON (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center gap-3">
+          {/* GIANT MULTIPLY 3D BUTTON (5 cols on tablet & laptop) */}
+          <div className="md:col-span-5 flex flex-col items-center justify-center gap-3">
             <motion.button
               onClick={handleMultiply}
               disabled={multiplier >= 3 || isCloning}
               whileHover={multiplier < 3 ? { scale: 1.05 } : {}}
               whileTap={multiplier < 3 ? { scale: 0.95 } : {}}
-              className={`w-full max-w-[300px] min-h-20 rounded-full font-black text-xl border-b-6 shadow-2xl transition-all flex flex-col items-center justify-center p-5 ${
+              className={`w-full max-w-full sm:max-w-[300px] min-h-16 sm:min-h-20 rounded-full font-black text-lg sm:text-xl border-b-6 shadow-2xl transition-all flex flex-col items-center justify-center p-4 sm:p-5 touch-manipulation ${
                 multiplier >= 3
                   ? "bg-slate-200 border-slate-400 text-slate-500 cursor-not-allowed shadow-none"
                   : "bg-amber-400 hover:bg-amber-300 text-amber-950 border-amber-600 shadow-amber-400/50 cursor-pointer active:translate-y-1"
               }`}
             >
               <div className="flex items-center gap-2">
-                <Zap className="h-7 w-7 text-amber-950 fill-amber-300 animate-bounce" />
+                <Zap className="h-6 w-6 sm:h-7 sm:w-7 text-amber-950 fill-amber-300 animate-bounce" />
                 <span>
                   {multiplier === 1
                     ? "GANDAKAN (2x)! 🚀"
@@ -433,7 +433,7 @@ export default function ProsesPage() {
             {multiplier >= 3 && !isAnswerSubmitted && (
               <button
                 onClick={() => setShowReflectionModal(true)}
-                className="btn-game-green min-h-14 px-8 text-lg"
+                className="w-full sm:w-auto btn-game-green min-h-14 px-6 sm:px-8 text-base sm:text-lg touch-manipulation"
               >
                 <span>Buka Pertanyaan Refleksi! 💡</span>
               </button>
@@ -597,18 +597,18 @@ export default function ProsesPage() {
                         <button
                           type="button"
                           onClick={handleNextMission}
-                          className="w-full btn-game-green min-h-16 px-8 text-xl"
+                          className="w-full btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-xl touch-manipulation"
                         >
                           <span>Lanjut ke Soal {currentMission.id + 1} ({PROSES_MISSIONS[activeMissionIndex + 1].baseRed}:{PROSES_MISSIONS[activeMissionIndex + 1].baseBlue})! 🚀</span>
-                          <ArrowRight className="h-6 w-6 ml-2" />
+                          <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                         </button>
                       ) : (
                         <Link
                           href="/objek"
-                          className="w-full btn-game-green min-h-16 px-8 text-xl"
+                          className="w-full btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-xl touch-manipulation flex items-center justify-center"
                         >
                           <span>Semua Soal Proses Tuntas! Lanjut ke Objek! 📦</span>
-                          <ArrowRight className="h-6 w-6 ml-2" />
+                          <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                         </Link>
                       )}
                     </div>

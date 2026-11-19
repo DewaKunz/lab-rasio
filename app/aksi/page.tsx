@@ -478,9 +478,9 @@ export default function AksiPage() {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            {/* LEFT: POOLS OF RED & BLUE CHIPS (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            {/* LEFT: POOLS OF RED & BLUE CHIPS (7 cols on tablet & laptop) */}
+            <div className="md:col-span-7 flex flex-col gap-5">
               {/* Red Chips Pool */}
               <div className="rounded-3xl border-4 border-b-6 border-rose-300 bg-white p-5 shadow-lg">
                 <div className="flex items-center justify-between mb-3">
@@ -623,8 +623,8 @@ export default function AksiPage() {
               </div>
             </div>
 
-            {/* RIGHT: THE GLASS DROPZONE (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col items-center">
+            {/* RIGHT: THE GLASS DROPZONE (5 cols on tablet & laptop) */}
+            <div className="md:col-span-5 flex flex-col items-center">
               <motion.div
                 animate={shakeGlass ? { x: [-12, 12, -12, 12, 0] } : {}}
                 transition={{ duration: 0.4 }}
@@ -808,18 +808,18 @@ export default function AksiPage() {
                     <button
                       type="button"
                       onClick={handleNextMission}
-                      className="w-full btn-game-green min-h-16 px-8 text-xl"
+                      className="w-full btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-xl touch-manipulation"
                     >
                       <span>Lanjut ke Soal {currentMission.id + 1} ({MISSIONS[activeMissionIndex + 1].targetRed}:{MISSIONS[activeMissionIndex + 1].targetBlue})! 🚀</span>
-                      <ArrowRight className="h-6 w-6 ml-2" />
+                      <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                     </button>
                   ) : (
                     <Link
                       href="/proses"
-                      className="w-full btn-game-green min-h-16 px-8 text-xl"
+                      className="w-full btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-xl touch-manipulation flex items-center justify-center"
                     >
                       <span>Semua Soal Aksi Selesai! Lanjut ke Proses! 🚀</span>
-                      <ArrowRight className="h-6 w-6 ml-2" />
+                      <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                     </Link>
                   )}
 

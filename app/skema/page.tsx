@@ -406,9 +406,9 @@ export default function SkemaPage() {
 
       {/* 3. CAFE KITCHEN & INTERACTIVE WATER POURING */}
       <section className="rounded-3xl border-4 border-b-8 border-purple-400 bg-purple-50/80 p-5 sm:p-8 shadow-2xl space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          {/* LEFT: Bottles & Pour Controls (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          {/* LEFT: Bottles & Pour Controls (5 cols on tablet & laptop) */}
+          <div className="md:col-span-5 flex flex-col gap-4">
             {/* Syrup Bottle */}
             <div className="flex items-center gap-4 rounded-3xl border-4 border-rose-300 bg-white p-4 shadow-md">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-rose-500 text-white font-black text-2xl shadow-md border-b-4 border-rose-700">
@@ -492,8 +492,8 @@ export default function SkemaPage() {
             </div>
           </div>
 
-          {/* RIGHT: GIANT PITCHER DISPLAY & VALIDATE BUTTON (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col items-center justify-center">
+          {/* RIGHT: GIANT PITCHER DISPLAY & VALIDATE BUTTON (7 cols on tablet & laptop) */}
+          <div className="md:col-span-7 flex flex-col items-center justify-center">
             <div className="relative w-full max-w-[320px] flex flex-col items-center">
               {/* Giant Pitcher */}
               <div className="relative w-full h-[210px] sm:h-[250px] rounded-b-[48px] rounded-t-3xl border-4 border-b-8 border-purple-400 bg-white p-4 shadow-2xl flex flex-col justify-end overflow-hidden">
@@ -590,7 +590,7 @@ export default function SkemaPage() {
                   <button
                     type="button"
                     onClick={handleNextChallenge}
-                    className="btn-game-green min-h-14 px-8 text-lg"
+                    className="w-full sm:w-auto btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-lg touch-manipulation"
                   >
                     <span>Lanjut ke {SKEMA_CHALLENGES[activeChallengeIndex + 1].title} ({SKEMA_CHALLENGES[activeChallengeIndex + 1].name})! 🍹</span>
                     <ArrowRight className="h-5 w-5 ml-2" />

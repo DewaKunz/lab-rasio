@@ -474,8 +474,8 @@ export default function ObjekPage() {
           </button>
         </div>
 
-        {/* 4 CARDS (2x2 on mobile so all fit on one screen, 4 columns on desktop) */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        {/* 4 CARDS (2x2 on mobile phone, 4 columns on tablet & laptop) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
           {currentRound.cards.map((card) => {
             const isMatched = matchedCardIds.includes(card.id);
             const isSelected = selectedCardId === card.id;
@@ -604,18 +604,18 @@ export default function ObjekPage() {
                     <button
                       type="button"
                       onClick={handleNextRound}
-                      className="w-full btn-game-green min-h-16 px-8 text-xl"
+                      className="w-full btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-xl touch-manipulation"
                     >
                       <span>Lanjut ke Ronde {currentRound.id + 1}! 🎯</span>
-                      <ArrowRight className="h-6 w-6 ml-2" />
+                      <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                     </button>
                   ) : (
                     <Link
                       href="/skema"
-                      className="w-full btn-game-green min-h-16 px-8 text-xl"
+                      className="w-full btn-game-green min-h-14 sm:min-h-16 px-4 sm:px-8 text-base sm:text-xl touch-manipulation flex items-center justify-center"
                     >
                       <span>Semua Ronde Selesai! Lanjut ke Skema! 👑</span>
-                      <ArrowRight className="h-6 w-6 ml-2" />
+                      <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                     </Link>
                   )}
 

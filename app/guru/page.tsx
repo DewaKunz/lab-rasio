@@ -150,7 +150,7 @@ export default function TeacherDashboardPage() {
       )}
 
       {/* KPI Stats Overview Cards */}
-      <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {/* Stat 1 */}
         <div className="rounded-2xl border-2 border-slate-200 bg-white p-4 shadow-sm">
           <div className="flex items-center justify-between">
